@@ -1,0 +1,17 @@
+{
+  "name": "more-custom-models",
+  "version": "1.1.0",
+  "description": "More custom models for Claude Code: alias any model with ANTHROPIC_DEFAULT_<ALIAS>_MODEL for /model and Agent, and route subagents with CLAUDE_CODE_SUBAGENT_<TYPE|ALIAS>_MODEL.",
+  "author": {
+    "name": "Vigilans"
+  },
+  "repository": "https://github.com/Vigilans/more-custom-models.git",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "model",
+    "alias",
+    "subagent"
+  ],
+  "types": "./types/index.d.ts"
+}
