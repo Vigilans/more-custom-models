@@ -1,6 +1,6 @@
 {
   "name": "more-custom-models",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "More custom models for Claude Code: alias any model with ANTHROPIC_DEFAULT_<ALIAS>_MODEL for /model and Agent, and route subagents with CLAUDE_CODE_SUBAGENT_<TYPE|ALIAS>_MODEL.",
   "author": {
     "name": "Vigilans"

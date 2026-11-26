@@ -29,7 +29,7 @@ const ONE_MILLION = '[1m]'
 type Env = Record<string, string>
 
 async function readEnv($: EngineInterface): Promise<Env> {
-  const env = await $.settings.read({ key: 'env' })
+  const { env } = await $.settings.read()
   return (env ?? {}) as Env
 }
 
@@ -182,8 +182,8 @@ export const register: Register = on => {
     const env = await readEnv($)
     if (env.CLAUDE_CODE_SUBAGENT_MODE !== 'bypassPermissions+dontAsk' || !e.agent_id) return next(e)
 
-    const permissions = (await $.settings.read({ key: 'permissions' })) as { ask?: unknown[] } | undefined
-    const askRules = (permissions?.ask ?? []).filter(rule => typeof rule === 'string')
+    const { permissions } = await $.settings.read()
+    const askRules = ((permissions as { ask?: unknown[] } | undefined)?.ask ?? []).filter(rule => typeof rule === 'string')
     let message = 'Avoid commands and tools that require user approval; use an alternative and continue when possible.'
     if (askRules.length) {
       message += `\n\nConfigured commands that require user approval:\n${askRules.map(rule => `- ${rule}`).join('\n')}`
